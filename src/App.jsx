@@ -16,6 +16,7 @@ const EXPERIENCE = [
     role: 'Software Engineer (Industrial Placement)',
     company: 'Holiday Extras',
     team: 'Supply Team',
+    url: 'https://www.holidayextras.co.uk',
     description:
       'Contributed to three production Node.js microservices across the email and booking stack. Onboarded a new B2B partner end-to-end, standardised template rendering and locale handling, and built a Claude Code AI plugin for the internal marketplace as a Hackathon project.',
   },
@@ -23,7 +24,8 @@ const EXPERIENCE = [
     period: '2024 — present',
     role: 'MSc Computer Science',
     company: 'University of Kent',
-    team: 'Canterbury',
+    team: 'School of Computing',
+    url: 'https://www.kent.ac.uk/computing',
     description:
       'Dissertation on GamerSwap — a peer-to-peer game exchange platform — covering inclusive UI/UX design, trust mechanisms, and matching algorithm design. Industrial placement year at Holiday Extras (2025–present).',
   },
@@ -32,6 +34,7 @@ const EXPERIENCE = [
     role: 'Project Manager',
     company: 'Garena Online',
     team: 'Blockman Go',
+    url: 'https://www.garena.com',
     description:
       'Managed release plans across 5 major and 3 minor versions. Supervised platform migration from Sandbox to Garena, coordinated with 9 overseas operation teams, and improved store ratings to 4.8 regional / 4.5 overall.',
   },
@@ -40,6 +43,7 @@ const EXPERIENCE = [
     role: 'Project Manager',
     company: 'Tencent',
     team: 'Synced: Off-Planet',
+    url: 'https://www.tencent.com',
     description:
       'Managed contracts and collaboration with 30+ domestic and overseas artists. Coordinated 10+ joint tests, ran bilingual meetings, and produced monthly cost analysis reports for outsourcing budget control.',
   },
@@ -60,7 +64,7 @@ const PROJECTS = [
     description:
       'Built MCP plugins for the Holiday Extras internal AI developer marketplace as a Hackathon project. The hx-email and hx-rpc plugins let engineers query internal services directly from Claude Code, removing context-switching during development. Both plugins were adopted by the engineering team.',
     stack: ['Claude Code', 'MCP', 'Node.js'],
-    url: '#',
+    url: null,
   },
   {
     type: 'fullstack',
@@ -97,13 +101,13 @@ function Nav() {
           // jolene.dev
         </a>
         <div className="flex items-center gap-5 sm:gap-8">
-          {['about', 'experience', 'projects', 'contact'].map(id => (
+          {['About', 'Experience', 'Projects', 'Contact'].map(label => (
             <a
-              key={id}
-              href={`#${id}`}
-              className="text-xs sm:text-sm text-[#cbd5e1] hover:text-[#e2e8f0] transition-colors"
+              key={label}
+              href={`#${label.toLowerCase()}`}
+              className="text-sm text-[#cbd5e1] hover:text-[#e2e8f0] transition-colors"
             >
-              {id}
+              {label}
             </a>
           ))}
         </div>
@@ -122,10 +126,10 @@ function Hero() {
         <span className="font-mono text-xs text-[#a78bfa]">open to work · 2026</span>
       </div>
 
-      <h1 className="text-5xl lg:text-6xl font-bold leading-[1.1] text-[#f8fafc] mb-4">
+      <h1 className="text-6xl lg:text-7xl font-bold leading-[1.1] text-[#f8fafc] mb-4">
         Jolene Zou
       </h1>
-      <p className="text-2xl lg:text-3xl font-semibold leading-[1.2] text-[#a78bfa]">
+      <p className="text-3xl lg:text-4xl font-semibold leading-[1.2] text-[#a78bfa]">
         Backend engineer,{' '}
         <span className="font-mono">full-stack too.</span>
       </p>
@@ -142,13 +146,13 @@ function About() {
 
       <div className="grid lg:grid-cols-2 gap-10">
         <div className="space-y-6">
-          <p className="text-[#cbd5e1] leading-relaxed text-[15px]">
+          <p className="text-[#cbd5e1] leading-relaxed text-base">
             I build reliable backend systems and ship full-stack products. Currently
             finishing a placement on the Supply team at Holiday Extras, where I maintain
             and migrate microservices in a GCP-based architecture as part of my
             Computer Science degree.
           </p>
-          <p className="text-[#cbd5e1] leading-relaxed text-[15px]">
+          <p className="text-[#cbd5e1] leading-relaxed text-base">
             I care about the whole product: clean APIs, solid data pipelines, and UIs
             that are actually good to use. Every personal and university project
             includes a frontend I designed and built myself. Looking for what&apos;s next.
@@ -161,14 +165,14 @@ function About() {
               key={group}
               className="p-4 rounded-lg border border-[#1e1e2e] bg-[#0d0d18]"
             >
-              <p className="font-mono text-[10px] text-[#7c3aed] tracking-widest mb-3">
+              <p className="font-mono text-xs text-[#c4b5fd] tracking-widest mb-3">
                 {group}
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {items.map(item => (
                   <span
                     key={item}
-                    className="text-[12px] text-[#cbd5e1] px-2 py-0.5 rounded border border-[#1e1e2e] bg-[#0a0a0f]"
+                    className="text-sm text-[#e2e8f0] px-2 py-1 rounded border border-[#2d2d4e] bg-[#141420]"
                   >
                     {item}
                   </span>
@@ -191,18 +195,24 @@ function Experience() {
 
       <div className="space-y-10">
         {EXPERIENCE.map(exp => (
-          <div key={exp.company} className="grid md:grid-cols-[160px_1fr] gap-3 md:gap-8">
+          <a
+            key={exp.company}
+            href={exp.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block grid md:grid-cols-[160px_1fr] gap-3 md:gap-8 p-5 -mx-5 rounded-lg hover:bg-[#1e293b]/50 transition-colors"
+          >
             <div className="md:pt-0.5">
               <p className="font-mono text-xs text-[#cbd5e1]">{exp.period}</p>
             </div>
             <div>
-              <h3 className="text-[#e2e8f0] font-medium mb-1">{exp.role}</h3>
+              <h3 className="text-lg text-[#e2e8f0] font-medium mb-1 group-hover:text-[#a78bfa] transition-colors">{exp.role}</h3>
               <p className="font-mono text-xs text-[#a78bfa] mb-3">
                 {exp.company} · {exp.team}
               </p>
-              <p className="text-sm text-[#cbd5e1] leading-relaxed">{exp.description}</p>
+              <p className="text-base text-[#cbd5e1] leading-relaxed">{exp.description}</p>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </section>
@@ -223,12 +233,13 @@ function Projects() {
       <SectionHeader label="projects" />
 
       <div className="grid md:grid-cols-2 gap-4">
-        {PROJECTS.map(project => (
-          <a
+        {PROJECTS.map(project => {
+          const Wrapper = project.url ? 'a' : 'div'
+          const linkProps = project.url ? { href: project.url, target: '_blank', rel: 'noopener noreferrer' } : {}
+          return (
+          <Wrapper
             key={project.title}
-            href={project.url}
-            target={project.url !== '#' ? '_blank' : undefined}
-            rel="noopener noreferrer"
+            {...linkProps}
             className="group block p-5 rounded-lg border border-[#1e1e2e] bg-[#0d0d18] hover:border-[#7c3aed]/30 transition-colors"
           >
             <div className="mb-3">
@@ -238,20 +249,21 @@ function Projects() {
                 {project.type}
               </span>
             </div>
-            <h3 className="text-[#e2e8f0] font-medium mb-2">{project.title}</h3>
-            <p className="text-sm text-[#cbd5e1] leading-relaxed mb-4">{project.description}</p>
+            <h3 className="text-lg text-[#e2e8f0] font-medium mb-2">{project.title}</h3>
+            <p className="text-base text-[#cbd5e1] leading-relaxed mb-4">{project.description}</p>
             <div className="flex flex-wrap gap-1.5">
               {project.stack.map(s => (
                 <span
                   key={s}
-                  className="font-mono text-[11px] text-[#cbd5e1] px-2 py-0.5 rounded border border-[#1e1e2e] bg-[#0a0a0f]"
+                  className="font-mono text-xs text-[#e2e8f0] px-2 py-1 rounded border border-[#2d2d4e] bg-[#141420]"
                 >
                   {s}
                 </span>
               ))}
             </div>
-          </a>
-        ))}
+          </Wrapper>
+          )
+        })}
       </div>
     </section>
   )
@@ -264,15 +276,15 @@ function Contact() {
     <section id="contact" className="max-w-5xl mx-auto px-6 py-20 pb-32">
       <SectionHeader label="contact" />
 
-      <p className="text-[#cbd5e1] leading-relaxed text-[15px] mb-8 max-w-md">
+      <p className="text-[#cbd5e1] leading-relaxed text-base mb-8 max-w-md">
         I&apos;m looking for backend or full-stack roles in the UK. If you&apos;re hiring or just
         want to chat, feel free to reach out.
       </p>
 
       <div className="flex flex-wrap gap-3">
-        <ContactButton href="mailto:hello@jolene.dev" label="email" />
-        <ContactButton href="https://github.com/RaidenVal" label="github" />
-        <ContactButton href="https://linkedin.com/in/jolene-zou" label="linkedin" />
+        <ContactButton href="mailto:jolene.y.zou@gmail.com" label="Email" />
+        <ContactButton href="https://github.com/RaidenVal" label="GitHub" />
+        <ContactButton href="https://www.linkedin.com/in/jolenezou" label="LinkedIn" />
       </div>
     </section>
   )
@@ -308,7 +320,7 @@ function SectionHeader({ label }) {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-[#e2e8f0]">
+    <div className="min-h-screen bg-[#0f172a] text-[#e2e8f0]">
       <Nav />
       <main>
         <Hero />
