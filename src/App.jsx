@@ -3,10 +3,11 @@ import { useState, useEffect } from 'react'
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const TECH_STACK = [
-  { group: 'LANGUAGES', items: ['TypeScript', 'JavaScript', 'Python', 'SQL'] },
-  { group: 'BACKEND', items: ['Node.js', 'Express', 'RxJS', 'Knex'] },
-  { group: 'DATA & INFRA', items: ['BigQuery', 'MySQL', 'GCP', 'AWS S3', 'K8s'] },
-  { group: 'TESTING & TOOLS', items: ['Jest', 'Mocha', 'Artillery', 'Grafana'] },
+  { group: 'LANGUAGES', items: ['JavaScript', 'TypeScript', 'C#', 'Java', 'Python', 'SQL'] },
+  { group: 'FRAMEWORKS', items: ['React', 'Node.js', 'Express', 'Handlebars'] },
+  { group: 'TESTING', items: ['Jest', 'Mocha', 'Grafana'] },
+  { group: 'TOOLS', items: ['Git', 'GCP', 'Jira', 'VS Code', 'Cursor'] },
+  { group: 'DATABASES', items: ['PostgreSQL', 'BigQuery'] },
   { group: 'AI & AUTOMATION', items: ['Claude API', 'MCP', 'Claude Code', 'Prompt Engineering'] },
 ]
 
